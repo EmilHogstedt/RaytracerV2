@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "cudaTest.cuh"
+#include "Engine3D.h"
 
 int temporaryTestCode()
 {
@@ -31,13 +32,18 @@ int temporaryTestCode()
 int main(int argc, char *args[])
 {
     //Initialization
-    SDL_Init(SDL_INIT_EVERYTHING);
-
-    bool running = true;
-    while (running)
+    Engine3D::Initialize(1280, 720);
+    
+    while (true)
     {
-        
+        Engine3D::HandleSDLEvents();
+
+        if (!Engine3D::IsRunning())
+            break;
+
+        Engine3D::Run();
     }
+
     return temporaryTestCode();
 }
 

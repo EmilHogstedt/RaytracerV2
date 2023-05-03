@@ -1,23 +1,31 @@
 #pragma once
 
-static class Engine3D
+class Engine3D
 {
-public:
-	Engine3D() : m_isRunning{ true }{}
+private:
+	Engine3D();
 	~Engine3D() = default;
 
 public:
-	void Initialize();
-	void Run();
-	void Stop();
+	static void Initialize(int, int);
+	static void Run();
+	static void Stop();
 
+	static void HandleSDLEvents();
 public:
-	bool IsRunning() { return m_isRunning; };
+	static bool IsRunning() { return m_isRunning; };
 
 private:
-	void Update();
-	void Render();
+	static void Update();
+	static void Render();
 
 private:
-	bool m_isRunning;
+	static bool m_isRunning;
+	static int m_screenWidth;
+	static int m_screenHeight;
+
+	static SDL_Window* m_window;
+	static SDL_Texture* m_texture;
+	static SDL_Renderer* m_renderer;
+	static unsigned int* m_pixelData;
 };

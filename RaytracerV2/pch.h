@@ -4,3 +4,5 @@
 
 #include <stdio.h>
 #include <SDL.h>
+
+#include <assert.h>

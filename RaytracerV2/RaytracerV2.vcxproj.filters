@@ -4,6 +4,12 @@
     <Filter Include="Application">
       <UniqueIdentifier>{919856c2-cd9f-458d-82d9-5ef205d85603}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Internal Dependencies">
+      <UniqueIdentifier>{d85a244e-9f53-4a34-a094-2f00a8d72efa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{cc4594a8-d4de-4a1f-ae92-2daa49735d59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="main.cpp">
@@ -17,5 +23,19 @@
     <ClInclude Include="cudaTest.cuh">
       <Filter>Application</Filter>
     </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Internal Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine3D.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Internal Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine3D.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
