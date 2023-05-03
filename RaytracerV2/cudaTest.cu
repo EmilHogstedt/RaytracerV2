@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "cudaTest.cuh"
 
 __global__ void addKernel(int* c, const int* a, const int* b)
 {
