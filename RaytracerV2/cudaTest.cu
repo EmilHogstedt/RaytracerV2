@@ -4,6 +4,7 @@
 __global__ void addKernel(int* c, const int* a, const int* b)
 {
     int i = threadIdx.x;
+    printf("%d\n", threadIdx.x);
     c[i] = a[i] + b[i];
 }
 
@@ -55,7 +56,8 @@ cudaError_t addWithCuda(int* c, const int* a, const int* b, unsigned int size)
     }
 
     // Launch a kernel on the GPU with one thread for each element.
-    addKernel << <1, size >> > (dev_c, dev_a, dev_b);
+    //addKernel << <1, size >> > (dev_c, dev_a, dev_b);
+    addKernel CUDA_KERNEL(1, size) (dev_c, dev_a, dev_b);
 
     // Check for any errors launching the kernel
     cudaStatus = cudaGetLastError();
